@@ -103,9 +103,13 @@
                                             <preferredSymbolConfiguration key="preferredSymbolConfiguration" weight="bold"/>
                                         </state>
                                     </button>
-                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="hLj-cP-amg">
+                                    <imageView clipsSubviews="YES" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="hLj-cP-amg">
                                         <rect key="frame" x="87" y="232" width="240" height="240"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <gestureRecognizers/>
+                                        <connections>
+                                            <outletCollection property="gestureRecognizers" destination="9yJ-Yl-2jn" appends="YES" id="srA-a9-bro"/>
+                                        </connections>
                                     </imageView>
                                 </subviews>
                                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -118,10 +122,16 @@
                     <connections>
                         <outlet property="button" destination="6cy-AS-hb8" id="zd8-nD-D6C"/>
                         <outlet property="imageView" destination="hLj-cP-amg" id="w0Z-Wx-0W6"/>
+                        <outlet property="tap" destination="hLj-cP-amg" id="qZQ-YU-FbU"/>
                         <outlet property="textView" destination="vLR-xA-Srt" id="tXQ-Ib-N4K"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4Gq-qj-chV" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="9yJ-Yl-2jn">
+                    <connections>
+                        <action selector="tap:" destination="Dob-MW-9Ri" id="FKB-F8-lXF"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="1908.6956521739132" y="152.67857142857142"/>
         </scene>

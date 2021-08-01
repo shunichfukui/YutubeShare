@@ -15,6 +15,7 @@
 		CE0ED6F126AA80F800EA1080 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CE0ED6EF26AA80F800EA1080 /* Main.storyboard */; };
 		CE0ED6F326AA80F900EA1080 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CE0ED6F226AA80F900EA1080 /* Assets.xcassets */; };
 		CE0ED6F626AA80F900EA1080 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CE0ED6F426AA80F900EA1080 /* LaunchScreen.storyboard */; };
+		CE1AE88426B6DCD3009C1EFA /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = CE1AE88326B6DCD3009C1EFA /* GoogleService-Info.plist */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,6 +31,7 @@
 		CE0ED6F226AA80F900EA1080 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		CE0ED6F526AA80F900EA1080 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		CE0ED6F726AA80F900EA1080 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		CE1AE88326B6DCD3009C1EFA /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -98,6 +100,7 @@
 				CE0ED6F226AA80F900EA1080 /* Assets.xcassets */,
 				CE0ED6F426AA80F900EA1080 /* LaunchScreen.storyboard */,
 				CE0ED6F726AA80F900EA1080 /* Info.plist */,
+				CE1AE88326B6DCD3009C1EFA /* GoogleService-Info.plist */,
 			);
 			path = "Yutube App 1";
 			sourceTree = "<group>";
@@ -162,6 +165,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				CE0ED6F626AA80F900EA1080 /* LaunchScreen.storyboard in Resources */,
+				CE1AE88426B6DCD3009C1EFA /* GoogleService-Info.plist in Resources */,
 				CE0ED6F326AA80F900EA1080 /* Assets.xcassets in Resources */,
 				CE0ED6F126AA80F800EA1080 /* Main.storyboard in Resources */,
 			);

@@ -9,15 +9,17 @@ import UIKit
 import Photos
 import FirebaseFirestore
 
-class ProfileViewController: UIViewController, UIImagePickerController, UINavigationControllerDelegate, UIImagePickerControllerDelegate {
+class ProfileViewController: UIViewController, UINavigationControllerDelegate, UIImagePickerControllerDelegate, DoneSendProfileDelegate {
 
     var userName = String()
+
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var textView: UITextView!
     @IBOutlet weak var button: UIButton!
 
-    override func viewDidxLoad() {
+    func viewDidxLoad() {
         super.viewDidLoad()
+        
         imageView.layer.cornerRadius = 10
         textView.layer.cornerRadius = 10
         button.layer.cornerRadius = 10
@@ -44,7 +46,7 @@ class ProfileViewController: UIViewController, UIImagePickerController, UINaviga
             case .denied:print("NotDetermined")
             case .restricted: print("limited")
             case .notDetermined:
-                <#code#>
+                
             case .limited:
                 <#code#>
             @unknown default: break
@@ -93,7 +95,24 @@ class ProfileViewController: UIViewController, UIImagePickerController, UINaviga
             picker.dismiss(animated: true, completion: nil)
         }
     }
+    
+    
+    @IBAction func dane(_ sender: Any) {
+        // dbに送信
+        let sendDB = SendDB()
+        sendDB.doneSendProfileDelegate = self
 
+        sendDB.sendProfile(userName: userName, imageData: imageView.image?.jpegData(compressionQuality: 0.5)!, profileTextView: textView.text!)
+        
+    }
+    
+    func DoneSendProfileDelegate(sendCheck: Int) {
+        if sendCheck == 1 {
+            // 画面遷移
+            
+        }
+    }
+    
     /*
     // MARK: - Navigation
 

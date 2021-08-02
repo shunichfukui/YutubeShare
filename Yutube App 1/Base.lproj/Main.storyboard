@@ -73,6 +73,22 @@
             </objects>
             <point key="canvasLocation" x="100.00000000000001" y="153.34821428571428"/>
         </scene>
+        <!--Search View Controller-->
+        <scene sceneID="M9c-tf-zOn">
+            <objects>
+                <viewController storyboardIdentifier="searchVC" useStoryboardIdentifierAsRestorationIdentifier="YES" id="Dd2-vt-CFU" customClass="SearchViewController" customModule="Yutube_App_1" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="ihG-oG-8up">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="yKj-5Y-70G"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="ZgA-N2-R1T"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="f5k-GA-lTz" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2774" y="153"/>
+        </scene>
         <!--Profile View Controller-->
         <scene sceneID="cpA-SP-kem">
             <objects>
@@ -94,7 +110,7 @@
                                         <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                     </textView>
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6cy-AS-hb8">
-                                        <rect key="frame" x="115" y="723" width="185" height="46"/>
+                                        <rect key="frame" x="87" y="723" width="240" height="35"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <color key="backgroundColor" systemColor="tertiarySystemBackgroundColor"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="20"/>
@@ -102,6 +118,9 @@
                                             <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <preferredSymbolConfiguration key="preferredSymbolConfiguration" weight="bold"/>
                                         </state>
+                                        <connections>
+                                            <action selector="dane:" destination="Dob-MW-9Ri" eventType="touchUpInside" id="Jmk-f4-e1t"/>
+                                        </connections>
                                     </button>
                                     <imageView clipsSubviews="YES" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="hLj-cP-amg">
                                         <rect key="frame" x="87" y="232" width="240" height="240"/>
@@ -124,6 +143,7 @@
                         <outlet property="imageView" destination="hLj-cP-amg" id="w0Z-Wx-0W6"/>
                         <outlet property="tap" destination="hLj-cP-amg" id="qZQ-YU-FbU"/>
                         <outlet property="textView" destination="vLR-xA-Srt" id="tXQ-Ib-N4K"/>
+                        <segue destination="Dd2-vt-CFU" kind="show" id="7O2-8R-pQ6"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4Gq-qj-chV" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

@@ -16,6 +16,8 @@
 		CE0ED6F326AA80F900EA1080 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CE0ED6F226AA80F900EA1080 /* Assets.xcassets */; };
 		CE0ED6F626AA80F900EA1080 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CE0ED6F426AA80F900EA1080 /* LaunchScreen.storyboard */; };
 		CE1AE88426B6DCD3009C1EFA /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = CE1AE88326B6DCD3009C1EFA /* GoogleService-Info.plist */; };
+		CE1AE88A26B6DF1B009C1EFA /* SendDB.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE1AE88926B6DF1B009C1EFA /* SendDB.swift */; };
+		CE1AE88C26B6EF1F009C1EFA /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE1AE88B26B6EF1F009C1EFA /* SearchViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,6 +34,8 @@
 		CE0ED6F526AA80F900EA1080 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		CE0ED6F726AA80F900EA1080 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		CE1AE88326B6DCD3009C1EFA /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		CE1AE88926B6DF1B009C1EFA /* SendDB.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SendDB.swift; sourceTree = "<group>"; };
+		CE1AE88B26B6EF1F009C1EFA /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -68,6 +72,7 @@
 			children = (
 				CE0ED6ED26AA80F800EA1080 /* ViewController.swift */,
 				CE0A9B4526B57E4E006FDB3C /* ProfileViewController.swift */,
+				CE1AE88B26B6EF1F009C1EFA /* SearchViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -95,6 +100,7 @@
 			children = (
 				CE0ED6E926AA80F800EA1080 /* AppDelegate.swift */,
 				CE0ED6EB26AA80F800EA1080 /* SceneDelegate.swift */,
+				CE1AE88826B6DF1B009C1EFA /* Model */,
 				CE0A9B4426B57E10006FDB3C /* Controller */,
 				CE0ED6EF26AA80F800EA1080 /* Main.storyboard */,
 				CE0ED6F226AA80F900EA1080 /* Assets.xcassets */,
@@ -103,6 +109,14 @@
 				CE1AE88326B6DCD3009C1EFA /* GoogleService-Info.plist */,
 			);
 			path = "Yutube App 1";
+			sourceTree = "<group>";
+		};
+		CE1AE88826B6DF1B009C1EFA /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				CE1AE88926B6DF1B009C1EFA /* SendDB.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -220,8 +234,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CE1AE88C26B6EF1F009C1EFA /* SearchViewController.swift in Sources */,
 				CE0ED6EE26AA80F800EA1080 /* ViewController.swift in Sources */,
 				CE0ED6EA26AA80F800EA1080 /* AppDelegate.swift in Sources */,
+				CE1AE88A26B6DF1B009C1EFA /* SendDB.swift in Sources */,
 				CE0A9B4626B57E4E006FDB3C /* ProfileViewController.swift in Sources */,
 				CE0ED6EC26AA80F800EA1080 /* SceneDelegate.swift in Sources */,
 			);

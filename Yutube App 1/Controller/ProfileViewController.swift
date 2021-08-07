@@ -102,8 +102,7 @@ class ProfileViewController: UIViewController, UINavigationControllerDelegate, U
         let sendDB = SendDB()
         sendDB.doneSendProfileDelegate = self
 
-        sendDB.sendProfile(userName: userName, imageData: imageView.image?.jpegData(compressionQuality: 0.5)!, profileTextView: textView.text!)
-        
+        sendDB.sendProfile(userName: userName, imageData: imageView.image?.jpegData(compressionQuality: 0.5), profileTextView: textView.text!)
     }
     
     func DoneSendProfileDelegate(sendCheck: Int) {

@@ -109,7 +109,8 @@ class ProfileViewController: UIViewController, UINavigationControllerDelegate, U
     func DoneSendProfileDelegate(sendCheck: Int) {
         if sendCheck == 1 {
             // 画面遷移
-            
+            let searchVC = self.storyboard?.instantiateViewController(identifier: "searchVC") as! SearchViewController
+            self.navigationController?.pushViewController(searchVC, animated: true)
         }
     }
     

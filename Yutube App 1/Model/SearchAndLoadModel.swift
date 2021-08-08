@@ -34,6 +34,10 @@ class SearchAndLoadModel {
         self.urlString = urlString
     }
     
+    init() {
+        
+    }
+    
     //Json解析
     func search() {
         let encordeUrlString = self.urlString.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)

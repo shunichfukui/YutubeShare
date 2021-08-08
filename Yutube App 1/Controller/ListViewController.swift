@@ -6,12 +6,17 @@
 //
 
 import UIKit
+import SDWebImage
+import youtube_ios_player_helper
 
-class ListViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class ListViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, DoneLoadDataProtocol {
 
 
     var tag = Int()
     var userName = String()
+    var dataSetsArray = [DataSets]()
+    var userNameArray = String()
+    var searchAndLoad = SearchAndLoadModel()
     
     @IBOutlet weak var tableView: UITableView!
 
@@ -27,6 +32,7 @@ class ListViewController: UIViewController, UITableViewDelegate, UITableViewData
         tableView.register(UINib(nibName:  "UserNameCell", bundle: nil),
                            forCellReuseIdentifier: "Cell")
         
+        searchAndLoad.doneLoadDataProtocol = self
         // 受信
         if tag == 1 {
             // 自分のリスト
@@ -51,6 +57,13 @@ class ListViewController: UIViewController, UITableViewDelegate, UITableViewData
     }
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        if tag == 1 {
+            return dataSetsArray.count
+        } else if tag == 2 {
+            return userNameArray.count
+        }
+    }
+    func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
     
@@ -60,6 +73,12 @@ class ListViewController: UIViewController, UITableViewDelegate, UITableViewData
         } else if tag == 2 {
             self.navigationItem.title == "皆のリスト"
         }
+    }
+    
+    // 受信
+    func doneLoadData(array: [DataSets]) {
+        dataSetsArray = array
+        tableView.reloadData()
     }
     
 

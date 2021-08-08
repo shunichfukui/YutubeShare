@@ -12,6 +12,9 @@ import FirebaseFirestore
 
 class SearchViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
+    
+    // YoutubeApiキー　AIzaSyBtXzgTmEzb2BTkgx01vNUeW9L4Co4vynU
+
     @IBOutlet weak var tableView: UITableView!
     var dataSetsArray = [DataSets]()
     var userName = String()

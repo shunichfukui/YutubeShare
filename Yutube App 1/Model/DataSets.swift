@@ -14,6 +14,6 @@ struct DataSets {
     let description:String?
     let url:String?
     let channelTitle:String?
-    let publish:String?
+    let publishTime:String?
 
 }

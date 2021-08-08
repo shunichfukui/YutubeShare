@@ -17,6 +17,7 @@ class SearchAndLoadModel {
 
     var urlString = String()
     var resultPerPage = Int()
+    var dataSetsArray:[DataSets] = []
 
     init(urlString:String){
         self.urlString = urlString
@@ -43,7 +44,28 @@ class SearchAndLoadModel {
                     }
                     print(self.resultPerPage)
                     for i in 0...self.resultPerPage - 1 {
-                        
+                        if let title = json["items"][i]["snippet"]["title"].string,
+                           let description = json["items"][i]["snippet"]["description"].string,
+                           let url = json["items"][i]["snippet"]["thumbnails"]["default"]["url"].string,
+                           let channelTitle = json["items"][i]["snippet"]["channelTitle"].string,
+                           let publishTime = json["items"][i]["snippet"]["publishTime"].string,
+                           let channelId = json["items"][i]["snippet"]["channelId"].string {
+                            if json["items"][i]["id"]["videoId"].string == channelId {
+                                // 何もしない
+                            } else {
+                                let dataSets = DataSets(videoID: json["items"][i]["id"]["videoId"].string,title: title, description: description, url: url, channelTitle: channelTitle, publishTime: publishTime)
+                                
+                                if title.contains("Error 404") == true || description.contains("Error 404") == true ||
+                                    channelTitle.contains("Error 404") == true ||
+                                    publishTime.contains("Error 404") == true {
+                                    // 何もしない
+                                } else {
+                                    self.dataSetsArray.append(dataSets)
+                                }
+                            }
+                        } else {
+                            print("値に不足があります")
+                        }
                     }
                 }catch{
                     print("エラー")

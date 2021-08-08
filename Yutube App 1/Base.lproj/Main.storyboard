@@ -149,11 +149,28 @@
                     <connections>
                         <outlet property="searchTextField" destination="j5T-Ld-8T5" id="oQu-Nm-c8V"/>
                         <outlet property="tableView" destination="925-lG-Pg9" id="G1w-v8-dBx"/>
+                        <segue destination="tbE-Dw-ew6" kind="show" id="JOm-as-YOb"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="f5k-GA-lTz" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2773.913043478261" y="152.67857142857142"/>
+        </scene>
+        <!--List View Controller-->
+        <scene sceneID="KZM-qx-yDI">
+            <objects>
+                <viewController storyboardIdentifier="listVC" id="tbE-Dw-ew6" customClass="ListViewController" customModule="Yutube_App_1" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="W2v-Vb-7uQ">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="glD-og-khN"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="HTV-e3-pUd"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="tCH-R1-Xsi" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3619" y="153"/>
         </scene>
         <!--Profile View Controller-->
         <scene sceneID="cpA-SP-kem">

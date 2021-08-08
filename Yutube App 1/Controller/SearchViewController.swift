@@ -11,7 +11,7 @@ import FirebaseAuth
 import FirebaseFirestore
 
 
-class SearchViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, DoneCatchDataProtocol {
+class SearchViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, DoneCatchDataProtocol, YTPlayerViewDelegate {
 
 
     @IBOutlet weak var searchTextField: UITextField!
@@ -20,6 +20,8 @@ class SearchViewController: UIViewController, UITableViewDelegate, UITableViewDa
     var userName = String()
     var db = Firestore.firestore()
     var userID = String()
+    
+    var youtubeView = YTPlayerView()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -47,7 +49,7 @@ class SearchViewController: UIViewController, UITableViewDelegate, UITableViewDa
 
     func tableView(_ tableView: UITableView,
                    numberOfRowsInSection section: Int) -> Int {
-        return 1
+        return dataSetsArray.count
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -74,6 +76,23 @@ class SearchViewController: UIViewController, UITableViewDelegate, UITableViewDa
         let sendDB = SendDB(userID: Auth.auth().currentUser!.uid, userName: userName, urlString: dataSetsArray[sender.tag].url!, videoID: dataSetsArray[sender.tag].videoID!, title: dataSetsArray[sender.tag].title, publishTime: dataSetsArray[sender.tag].publishTime!, desctiption: dataSetsArray[sender.tag].description!, channelTitle: dataSetsArray[sender.tag].channelTitle!)
         
         sendDB.sendData(userName: userName)
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        youtubeView.removeFromSuperview()
+        // ステータスバーの高さを取得
+        let statusBarHeight = UIApplication.shared.statusBarFrame.height
+        // ナビゲーションバーの高さを取得
+        let navBarHeight = self.navigationController?.navigationBar.frame.size.height
+        youtubeView = YTPlayerView(frame: CGRect(x: 0, y: statusBarHeight + navBarHeight!, width: view.frame.size.width, height: 240))
+        
+        youtubeView.delegate = self
+        youtubeView.load(widthVideoId: String(dataSetsArray[indexPath.row].videoID!), playerVars: ["playersinline":1])
+        view.addSubview(youtubeView)
+    }
+    
+    func playerViewDidBecomeReady(_ playerView: YTPlayerView) {
+        playerView.playVideo()
     }
 
     @IBAction func search(_ sender: Any) {

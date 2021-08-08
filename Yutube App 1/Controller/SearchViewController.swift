@@ -12,9 +12,8 @@ import FirebaseFirestore
 
 class SearchViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
-    
-    // YoutubeApiキー　AIzaSyBtXzgTmEzb2BTkgx01vNUeW9L4Co4vynU
 
+    @IBOutlet weak var searchTextField: UITextField!
     @IBOutlet weak var tableView: UITableView!
     var dataSetsArray = [DataSets]()
     var userName = String()
@@ -55,6 +54,11 @@ class SearchViewController: UIViewController, UITableViewDelegate, UITableViewDa
         let cell = tableView.dequeueReusableCell(withIdentifier: "VideoCell",
             for: indexPath) as! VideoCell
         
+    }
+    @IBAction func search(_ sender: Any) {
+        //textFoeldに入ってるキーワードを元に、Youtubeの検索を行う
+        let urlString = "https://www.googleapis.com/youtube/v3/search?key=AIzaSyBtXzgTmEzb2BTkgx01vNUeW9L4Co4vynU&part=snippet&q=\(searchTextField.text!)&maxResults=50"
+       
     }
     
     

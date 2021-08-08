@@ -137,6 +137,9 @@
                                 <rect key="frame" x="61" y="48" width="26" height="25"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" image="search"/>
+                                <connections>
+                                    <action selector="search:" destination="Dd2-vt-CFU" eventType="touchUpInside" id="3PD-CR-IOP"/>
+                                </connections>
                             </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="yKj-5Y-70G"/>
@@ -144,6 +147,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="ZgA-N2-R1T"/>
                     <connections>
+                        <outlet property="searchTextField" destination="j5T-Ld-8T5" id="oQu-Nm-c8V"/>
                         <outlet property="tableView" destination="925-lG-Pg9" id="G1w-v8-dBx"/>
                     </connections>
                 </viewController>

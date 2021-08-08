@@ -23,6 +23,8 @@
 		CEA2AAE926BF98360037BACD /* VideoCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CEA2AAE726BF98360037BACD /* VideoCell.xib */; };
 		CEA2AAEB26BFA5BC0037BACD /* SearchAndLoadModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEA2AAEA26BFA5BC0037BACD /* SearchAndLoadModel.swift */; };
 		CEA2AAED26C003E60037BACD /* ListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEA2AAEC26C003E60037BACD /* ListViewController.swift */; };
+		CEA2AAF026C007C20037BACD /* UserNameCellTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEA2AAEE26C007C20037BACD /* UserNameCellTableViewCell.swift */; };
+		CEA2AAF126C007C20037BACD /* UserNameCellTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CEA2AAEF26C007C20037BACD /* UserNameCellTableViewCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -46,6 +48,8 @@
 		CEA2AAE726BF98360037BACD /* VideoCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = VideoCell.xib; sourceTree = "<group>"; };
 		CEA2AAEA26BFA5BC0037BACD /* SearchAndLoadModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchAndLoadModel.swift; sourceTree = "<group>"; };
 		CEA2AAEC26C003E60037BACD /* ListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListViewController.swift; sourceTree = "<group>"; };
+		CEA2AAEE26C007C20037BACD /* UserNameCellTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserNameCellTableViewCell.swift; sourceTree = "<group>"; };
+		CEA2AAEF26C007C20037BACD /* UserNameCellTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = UserNameCellTableViewCell.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -138,6 +142,8 @@
 			children = (
 				CEA2AAE626BF98360037BACD /* VideoCell.swift */,
 				CEA2AAE726BF98360037BACD /* VideoCell.xib */,
+				CEA2AAEE26C007C20037BACD /* UserNameCellTableViewCell.swift */,
+				CEA2AAEF26C007C20037BACD /* UserNameCellTableViewCell.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -202,6 +208,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				CEA2AAE926BF98360037BACD /* VideoCell.xib in Resources */,
+				CEA2AAF126C007C20037BACD /* UserNameCellTableViewCell.xib in Resources */,
 				CE0ED6F626AA80F900EA1080 /* LaunchScreen.storyboard in Resources */,
 				CE1AE88426B6DCD3009C1EFA /* GoogleService-Info.plist in Resources */,
 				CE0ED6F326AA80F900EA1080 /* Assets.xcassets in Resources */,
@@ -265,6 +272,7 @@
 				CEA2AAEB26BFA5BC0037BACD /* SearchAndLoadModel.swift in Sources */,
 				CE0ED6EA26AA80F800EA1080 /* AppDelegate.swift in Sources */,
 				CE1AE88A26B6DF1B009C1EFA /* SendDB.swift in Sources */,
+				CEA2AAF026C007C20037BACD /* UserNameCellTableViewCell.swift in Sources */,
 				CE0A9B4626B57E4E006FDB3C /* ProfileViewController.swift in Sources */,
 				CEA2AAED26C003E60037BACD /* ListViewController.swift in Sources */,
 				CE0ED6EC26AA80F800EA1080 /* SceneDelegate.swift in Sources */,

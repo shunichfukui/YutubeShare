@@ -16,12 +16,19 @@ protocol DoneCatchDataProtocol {
     // 規則
     func doneCatchData(array:[DataSets])
 }
+protocol DoneLoadDataProtocol {
+    // 規則
+    func doneLoadData(array:[DataSets])
+}
+
 class SearchAndLoadModel {
 
     var urlString = String()
     var resultPerPage = Int()
     var dataSetsArray:[DataSets] = []
     var doneCatchDataProtocol: DoneCatchDataProtocol?
+    var doneLoadDataProtocol: DoneLoadDataProtocol?
+    var db = Firestore.firestore()
 
     init(urlString:String){
         self.urlString = urlString
@@ -78,6 +85,34 @@ class SearchAndLoadModel {
                 }
             case .failure(_): break
                 print("エラー break")
+            }
+        }
+    }
+    // 自分のリストを受信
+    func loadMyListData(userName: String) {
+        db.collection("contents").document(userName).collection("collection").order(by: "postDate").addSnapshotListener { snapShot, error in
+            self.dataSetsArray = []
+            if error != nil {
+                print(error.debugDescription)
+                return
+            }
+            if let snapShotDoc = snapShot?.documents{
+                for doc in snapShotDoc {
+                    let data = doc.data()
+                    print(data.debugDescription)
+                    if let videoID = data["videoID"] as? String,
+                       let urlString = data["urlString"] as? String,
+                       let publishTime = data["publishTime"] as? String,
+                       let title = data["title"] as? String,
+                       let description = data["description"] as? String,
+                       let channelTitle = data["channelTitle"] as? String {
+                        let dataSets = DataSets(videoID: videoID, title: title, description: description, url: urlString, channelTitle: channelTitle, publishTime: publishTime)
+                        self.dataSetsArray.append(dataSets)
+                    }
+                }
+                
+                // コントローラーに値を送る
+                self.doneLoadDataProtocol?.doneLoadData(array: self.dataSetsArray)
             }
         }
     }

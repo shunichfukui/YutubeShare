@@ -18,6 +18,7 @@
 		CE1AE88426B6DCD3009C1EFA /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = CE1AE88326B6DCD3009C1EFA /* GoogleService-Info.plist */; };
 		CE1AE88A26B6DF1B009C1EFA /* SendDB.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE1AE88926B6DF1B009C1EFA /* SendDB.swift */; };
 		CE1AE88C26B6EF1F009C1EFA /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE1AE88B26B6EF1F009C1EFA /* SearchViewController.swift */; };
+		CE38878626BE9E0500424DCD /* DataSets.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE38878526BE9E0500424DCD /* DataSets.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -36,6 +37,7 @@
 		CE1AE88326B6DCD3009C1EFA /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		CE1AE88926B6DF1B009C1EFA /* SendDB.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SendDB.swift; sourceTree = "<group>"; };
 		CE1AE88B26B6EF1F009C1EFA /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
+		CE38878526BE9E0500424DCD /* DataSets.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataSets.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -115,6 +117,7 @@
 			isa = PBXGroup;
 			children = (
 				CE1AE88926B6DF1B009C1EFA /* SendDB.swift */,
+				CE38878526BE9E0500424DCD /* DataSets.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -234,6 +237,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CE38878626BE9E0500424DCD /* DataSets.swift in Sources */,
 				CE1AE88C26B6EF1F009C1EFA /* SearchViewController.swift in Sources */,
 				CE0ED6EE26AA80F800EA1080 /* ViewController.swift in Sources */,
 				CE0ED6EA26AA80F800EA1080 /* AppDelegate.swift in Sources */,

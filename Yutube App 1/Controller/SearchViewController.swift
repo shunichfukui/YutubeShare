@@ -6,14 +6,42 @@
 //
 
 import UIKit
+import youtube_ios_player_helper
+import FirebaseAuth
+import FirebaseFirestore
 
-class SearchViewController: UIViewController {
+class SearchViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
-    override func viewDidLoad() {
+    @IBOutlet weak var tableView: UITableView!
+    var dataSetsArray = [DataSets]()
+    var userName = String()
+    var db = Firestore.firestore()
+    var userID = String()
+
+    func viewDidLoad() {
         super.viewDidLoad()
 
+        tableView.delegate = self
+        tableView.dataSource = self
         // Do any additional setup after loading the view.
+        if UserDefaults.standard.object(forKey: "userName") != nil {
+            userName = UserDefaults.standard.object(forKey: "userName") as! String
+        }
     }
+
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return 1
+    }
+
+    func tableView(_ tableView: UITableView,
+                   numberOfRowsInSection section: Int) -> Int {
+        return 1
+    }
+
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        
+    }
+    
     
 
     /*

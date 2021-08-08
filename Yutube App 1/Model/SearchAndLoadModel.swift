@@ -12,12 +12,16 @@ import FirebaseAuth
 import SwiftyJSON
 import Alamofire
 
-
+protocol DoneCatchDataProtocol {
+    // 規則
+    func doneCatchData(array:[DataSets])
+}
 class SearchAndLoadModel {
 
     var urlString = String()
     var resultPerPage = Int()
     var dataSetsArray:[DataSets] = []
+    var doneCatchDataProtocol: DoneCatchDataProtocol?
 
     init(urlString:String){
         self.urlString = urlString
@@ -63,6 +67,8 @@ class SearchAndLoadModel {
                                     self.dataSetsArray.append(dataSets)
                                 }
                             }
+                            // コントローラー側に値を渡す
+                            self.doneCatchDataProtocol?.doneCatchData(array: self.dataSetsArray)
                         } else {
                             print("値に不足があります")
                         }

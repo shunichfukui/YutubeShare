@@ -10,7 +10,7 @@ import youtube_ios_player_helper
 import FirebaseAuth
 import FirebaseFirestore
 
-class SearchViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class SearchViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, DoneCatchDataProtocol {
 
 
     @IBOutlet weak var searchTextField: UITextField!

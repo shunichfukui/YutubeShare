@@ -10,6 +10,10 @@ import Photos
 import FirebaseFirestore
 
 class ProfileViewController: UIViewController, UINavigationControllerDelegate, UIImagePickerControllerDelegate, DoneSendProfileDelegate {
+    func doneSendProfileDelegate(sendCheck: Int) {
+        <#code#>
+    }
+    
 
     
 
@@ -40,43 +44,60 @@ class ProfileViewController: UIViewController, UINavigationControllerDelegate, U
         
     }
 
-    func checkCamera() {
+    func checkCamera(){
         // ユーザーに許可を促す.
         PHPhotoLibrary.requestAuthorization { (status) -> Void in
+            
             switch(status){
-            case .authorized:print("Authorized")
-            case .denied:print("NotDetermined")
-            case .restricted: print("limited")
-            case .notDetermined:
+            case .authorized:
+                print("Authorized")
                 
+            case .denied:
+                print("Denied")
+                
+            case .notDetermined:
+                print("NotDetermined")
+                
+            case .restricted:
+                print("Restricted")
             case .limited:
-                <#code#>
+                print("limited")
             @unknown default: break
+                
             }
-            <#code#>
         }
     }
-    
+
     func showAlert(){
-        let alert:UIAlertController = UIAlertController(title:"選択してください。", message: "カメラアルバムをどちらにしますか？", preferredStyle: .alert)
-        // カメラボタン
-        let cameraAction: UIAlertAction = UIAlertAction(title: "カメラ", style: .default, handler: {(action: UIAlertAction!)-> Void in self.createImagePicker(sourceType: .camera)
-        })
-        // アルバムボタン
-        let albumAction: UIAlertAction = UIAlertAction(title: "アルバム", style: .default, handler: {
-            // ボタンが押された時の処理
-            (action:UIAlertAction!)-> Void in
-            self.createImagePicker(sourceType: .photoLibrary)
-        })
-        let cancelAction: UIAlertAction = UIAlertAction(title: "キャンセル", style: .cancel)
-        
-        alert.addAction(albumAction)
-        alert.addAction(cameraAction)
-        alert.addAction(cancelAction)
-        
-        // Alertを表示
-        present(alert, animated: true, completion: nil)
-    }
+       let alert: UIAlertController = UIAlertController(title: "選択してください。", message: "カメラアルバムどちらにしますか？", preferredStyle:  .alert)
+
+       // カメラボタン
+       let cameraAction: UIAlertAction = UIAlertAction(title: "カメラ", style: .default, handler:{
+           // ボタンが押された時の処理を書く（クロージャ実装）
+           (action: UIAlertAction!) -> Void in
+           
+           
+           
+           self.createImagePicker(sourceType: .camera)
+       })
+       // アルバムボタン
+       let albumAction: UIAlertAction = UIAlertAction(title: "アルバム", style: .default, handler:{
+           // ボタンが押された時の処理を書く（クロージャ実装）
+           (action: UIAlertAction!) -> Void in
+           self.createImagePicker(sourceType: .photoLibrary)
+
+       })
+       
+       let cancelAction: UIAlertAction = UIAlertAction(title: "キャンセル", style: .cancel)
+
+       // ③ UIAlertControllerにActionを追加
+       alert.addAction(albumAction)
+       alert.addAction(cameraAction)
+       alert.addAction(cancelAction)
+
+       // ④ Alertを表示
+       present(alert, animated: true, completion: nil)
+   }
 
     func createImagePicker(sourceType: UIImagePickerController.SourceType){
         let cameraPicker = UIImagePickerController()
@@ -104,7 +125,7 @@ class ProfileViewController: UIViewController, UINavigationControllerDelegate, U
         let sendDB = SendDB()
         sendDB.doneSendProfileDelegate = self
 
-        sendDB.sendProfile(userName: userName, imageData: imageView.image?.jpegData(compressionQuality: 0.5), profileTextView: textView.text!)
+        sendDB.sendProfile(userName: userName, imageData: imageView.image?.jpegData(compressionQuality: 0.5) ?? <#default value#>, profileTextView: textView.text!)
     }
     
     func DoneSendProfileDelegate(sendCheck: Int) {

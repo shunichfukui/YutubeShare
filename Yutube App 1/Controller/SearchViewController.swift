@@ -57,7 +57,25 @@ class SearchViewController: UIViewController, UITableViewDelegate, UITableViewDa
         cell.thumnailImageView.sd_setImage(with: URL(string: dataSetsArray[indexPath.row].url!), completed: nil)
         cell.titleLabel.text = dataSetsArray[indexPath.row].title
         cell.dateLabel = dataSetsArray[indexPath.row].publishTime
+        
+        //favボタン
+        let favButton = UIButton(frame: CGRect(x: 330, y: 32, width: 40, height: 46))
+        favButton.setImage(UIImage(named: "fav"), for: .normal)
+        favButton.addTarget(self, action: #selector(favButtonTap(_:)), for: .touchUpInside)
+        favButton.tag = indexPath.row
+        cell.contentView.addSubview(favButton)
+        return cell
+        
     }
+
+    @objc func favButtonTap(_ sender:UIButton) {
+        // DBへ情報を送信する
+        print(sender.tag)
+        let sendDB = SendDB(userID: Auth.auth().currentUser!.uid, userName: userName, urlString: dataSetsArray[sender.tag].url!, videoID: dataSetsArray[sender.tag].videoID!, title: dataSetsArray[sender.tag].title, publishTime: dataSetsArray[sender.tag].publishTime!, desctiption: dataSetsArray[sender.tag].description!, channelTitle: dataSetsArray[sender.tag].channelTitle!)
+        
+        sendDB.sendData(userName: userName)
+    }
+
     @IBAction func search(_ sender: Any) {
         //textFoeldに入ってるキーワードを元に、Youtubeの検索を行う
         let urlString = "https://www.googleapis.com/youtube/v3/search?key=AIzaSyBtXzgTmEzb2BTkgx01vNUeW9L4Co4vynU&part=snippet&q=\(searchTextField.text!)&maxResults=50"

@@ -77,7 +77,7 @@ class SearchAndLoadModel {
                     print("エラー")
                 }
             case .failure(_): break
-                <#code#>
+                print("エラー break")
             }
         }
     }

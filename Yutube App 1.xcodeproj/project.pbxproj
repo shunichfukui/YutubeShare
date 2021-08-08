@@ -19,6 +19,8 @@
 		CE1AE88A26B6DF1B009C1EFA /* SendDB.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE1AE88926B6DF1B009C1EFA /* SendDB.swift */; };
 		CE1AE88C26B6EF1F009C1EFA /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE1AE88B26B6EF1F009C1EFA /* SearchViewController.swift */; };
 		CE38878626BE9E0500424DCD /* DataSets.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE38878526BE9E0500424DCD /* DataSets.swift */; };
+		CEA2AAE826BF98360037BACD /* VideoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEA2AAE626BF98360037BACD /* VideoCell.swift */; };
+		CEA2AAE926BF98360037BACD /* VideoCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CEA2AAE726BF98360037BACD /* VideoCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -38,6 +40,8 @@
 		CE1AE88926B6DF1B009C1EFA /* SendDB.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SendDB.swift; sourceTree = "<group>"; };
 		CE1AE88B26B6EF1F009C1EFA /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
 		CE38878526BE9E0500424DCD /* DataSets.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataSets.swift; sourceTree = "<group>"; };
+		CEA2AAE626BF98360037BACD /* VideoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoCell.swift; sourceTree = "<group>"; };
+		CEA2AAE726BF98360037BACD /* VideoCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = VideoCell.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -102,6 +106,7 @@
 			children = (
 				CE0ED6E926AA80F800EA1080 /* AppDelegate.swift */,
 				CE0ED6EB26AA80F800EA1080 /* SceneDelegate.swift */,
+				CEA2AAE526BF97E60037BACD /* View */,
 				CE1AE88826B6DF1B009C1EFA /* Model */,
 				CE0A9B4426B57E10006FDB3C /* Controller */,
 				CE0ED6EF26AA80F800EA1080 /* Main.storyboard */,
@@ -120,6 +125,15 @@
 				CE38878526BE9E0500424DCD /* DataSets.swift */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		CEA2AAE526BF97E60037BACD /* View */ = {
+			isa = PBXGroup;
+			children = (
+				CEA2AAE626BF98360037BACD /* VideoCell.swift */,
+				CEA2AAE726BF98360037BACD /* VideoCell.xib */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -181,6 +195,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CEA2AAE926BF98360037BACD /* VideoCell.xib in Resources */,
 				CE0ED6F626AA80F900EA1080 /* LaunchScreen.storyboard in Resources */,
 				CE1AE88426B6DCD3009C1EFA /* GoogleService-Info.plist in Resources */,
 				CE0ED6F326AA80F900EA1080 /* Assets.xcassets in Resources */,
@@ -238,6 +253,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				CE38878626BE9E0500424DCD /* DataSets.swift in Sources */,
+				CEA2AAE826BF98360037BACD /* VideoCell.swift in Sources */,
 				CE1AE88C26B6EF1F009C1EFA /* SearchViewController.swift in Sources */,
 				CE0ED6EE26AA80F800EA1080 /* ViewController.swift in Sources */,
 				CE0ED6EA26AA80F800EA1080 /* AppDelegate.swift in Sources */,

@@ -18,15 +18,24 @@ class SearchViewController: UIViewController, UITableViewDelegate, UITableViewDa
     var db = Firestore.firestore()
     var userID = String()
 
-    func viewDidLoad() {
+    override func viewDidLoad() {
         super.viewDidLoad()
 
         tableView.delegate = self
         tableView.dataSource = self
+        
+        tableView.register(UINib(nibName:  "VideoCell", bundle: nil),
+                           forCellReuseIdentifier: "VideoCell")
+
         // Do any additional setup after loading the view.
         if UserDefaults.standard.object(forKey: "userName") != nil {
             userName = UserDefaults.standard.object(forKey: "userName") as! String
         }
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        self.navigationController?.isNavigationBarHidden = true
     }
 
     func numberOfSections(in tableView: UITableView) -> Int {
@@ -39,6 +48,9 @@ class SearchViewController: UIViewController, UITableViewDelegate, UITableViewDa
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        
+        let cell = tableView.dequeueReusableCell(withIdentifier: "VideoCell",
+            for: indexPath) as! VideoCell
         
     }
     

@@ -9,6 +9,9 @@ import UIKit
 
 class ListViewController: UIViewController {
 
+    var tag = Int()
+    var userName = String()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 

@@ -112,7 +112,23 @@ class SearchViewController: UIViewController, UITableViewDelegate, UITableViewDa
         tableView.reloadData()
     }
     
-
+    
+    @IBAction func confirmLIst(_ sender: Any) {
+        let storyBoard = UIStoryboard(name: "Main", bundle: nil)
+        let listVC = storyboard?.instantiateViewController(withIdentifier: "listVC") as! ListViewController
+        
+        if (sender as AnyObject).tag == 1 {
+            // 自分のリスト
+            listVC.tag = 1
+            listVC.userName = userName
+        } else {
+            // 皆のリスト
+            listVC.tag = 2
+        }
+        
+        self.navigationController?.pushViewController(listVC, animated: true)
+    }
+    
     /*
     // MARK: - Navigation
 

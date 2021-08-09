@@ -9,7 +9,8 @@ import UIKit
 import SDWebImage
 import youtube_ios_player_helper
 
-class ListViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, DoneLoadDataProtocol {
+class ListViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, DoneLoadDataProtocol, DoneLoadUserNameProtocol {
+    
 
 
     var tag = Int()
@@ -33,11 +34,14 @@ class ListViewController: UIViewController, UITableViewDelegate, UITableViewData
                            forCellReuseIdentifier: "Cell")
         
         searchAndLoad.doneLoadDataProtocol = self
+        searchAndLoad.doneLoadUserNameProtocol = self
         // 受信
         if tag == 1 {
             // 自分のリスト
+            searchAndLoad.loadMyListData(userName: userName)
         } else if tag == 2 {
-            // 皆のリスト
+            // 皆のリスト(名前)
+            searchAndLoad.loadOtherListData()
         }
         // Do any additional setup after loading the view.
     }
@@ -76,7 +80,9 @@ class ListViewController: UIViewController, UITableViewDelegate, UITableViewData
             cell.dateLabel.text = dataSetsArray[indexPath.row].publishTime
             return cell
         } else {
-           
+            let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as! UserNameCell
+            cell.userNameLabel.text = userNameArray[indexPath.row]
+            return cell
         }
     }
     
@@ -87,6 +93,14 @@ class ListViewController: UIViewController, UITableViewDelegate, UITableViewData
     }
     
 
+    func doneLoadUserName(array: [String]) {
+        userNameArray = []
+        // 重複を消す
+        let orderedSet = NSOrderedSet(array: array)
+        print(orderedSet.debugDescription)
+        userNameArray = orderedSet.array as! [String]
+        tableView.reloadData()
+    }
     /*
     // MARK: - Navigation
 

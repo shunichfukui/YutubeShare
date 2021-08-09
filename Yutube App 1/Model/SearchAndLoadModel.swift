@@ -21,6 +21,11 @@ protocol DoneLoadDataProtocol {
     func doneLoadData(array:[DataSets])
 }
 
+protocol DoneLoadUserNameProtocol {
+    // 規則
+    func doneLoadUserName(array:[String])
+}
+
 class SearchAndLoadModel {
 
     var urlString = String()
@@ -28,7 +33,9 @@ class SearchAndLoadModel {
     var dataSetsArray:[DataSets] = []
     var doneCatchDataProtocol: DoneCatchDataProtocol?
     var doneLoadDataProtocol: DoneLoadDataProtocol?
+    var doneLoadUserNameProtocol: DoneLoadUserNameProtocol?
     var db = Firestore.firestore()
+    var userNameArray = [String]()
 
     init(urlString:String){
         self.urlString = urlString
@@ -118,6 +125,23 @@ class SearchAndLoadModel {
                 // コントローラーに値を送る
                 self.doneLoadDataProtocol?.doneLoadData(array: self.dataSetsArray)
             }
+        }
+    }
+    
+    // ユーザー名を取得
+    func loadOtherListData() {
+        db.collection("Users").addSnapshotListener { (snapShot, error) in
+            if let snapShotDoc = snapShot?.documents{
+                for doc in snapShotDoc {
+                    let data = doc.data()
+                    if let userName = data["userName"] as? String {
+                        self.userNameArray.append(userName)
+                    }
+                }
+                // コントローラー側にプロトコルを用いて値を渡す
+                self.doneLoadUserNameProtocol?.doneLoadUserName(array: self.userNameArray)
+            }
+            
         }
     }
 }

@@ -15,7 +15,7 @@ class ListViewController: UIViewController, UITableViewDelegate, UITableViewData
     var tag = Int()
     var userName = String()
     var dataSetsArray = [DataSets]()
-    var userNameArray = String()
+    var userNameArray = [String]()
     var searchAndLoad = SearchAndLoadModel()
     
     @IBOutlet weak var tableView: UITableView!
@@ -47,7 +47,7 @@ class ListViewController: UIViewController, UITableViewDelegate, UITableViewData
         self.navigationController?.isNavigationBarHidden = false
         if tag == 1 {
             self.navigationItem.title == "自分のリスト"
-        } else if tag == 2 {
+        } else {
             self.navigationItem.title == "皆のリスト"
         }
     }
@@ -59,7 +59,7 @@ class ListViewController: UIViewController, UITableViewDelegate, UITableViewData
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if tag == 1 {
             return dataSetsArray.count
-        } else if tag == 2 {
+        } else {
             return userNameArray.count
         }
     }
@@ -69,9 +69,14 @@ class ListViewController: UIViewController, UITableViewDelegate, UITableViewData
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if tag == 1 {
-            self.navigationItem.title == "自分のリスト"
-        } else if tag == 2 {
-            self.navigationItem.title == "皆のリスト"
+            let cell = tableView.dequeueReusableCell(withIdentifier: "VideoCell", for: indexPath) as! VideoCell
+            cell.titleLabel.text = dataSetsArray[indexPath.row].title
+            cell.thumnailImageView.sd_setImage(with: URL(string: dataSetsArray[indexPath.row].url!), completed: nil)
+            cell.channelTitleLabel.text = dataSetsArray[indexPath.row].channelTitle
+            cell.dateLabel.text = dataSetsArray[indexPath.row].publishTime
+            return cell
+        } else {
+           
         }
     }
     

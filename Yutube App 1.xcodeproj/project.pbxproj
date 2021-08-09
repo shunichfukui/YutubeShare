@@ -19,6 +19,7 @@
 		CE1AE88A26B6DF1B009C1EFA /* SendDB.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE1AE88926B6DF1B009C1EFA /* SendDB.swift */; };
 		CE1AE88C26B6EF1F009C1EFA /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE1AE88B26B6EF1F009C1EFA /* SearchViewController.swift */; };
 		CE38878626BE9E0500424DCD /* DataSets.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE38878526BE9E0500424DCD /* DataSets.swift */; };
+		CE45479726C16B96005B9CA9 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE45479626C16B96005B9CA9 /* DetailViewController.swift */; };
 		CEA2AAE826BF98360037BACD /* VideoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEA2AAE626BF98360037BACD /* VideoCell.swift */; };
 		CEA2AAE926BF98360037BACD /* VideoCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CEA2AAE726BF98360037BACD /* VideoCell.xib */; };
 		CEA2AAEB26BFA5BC0037BACD /* SearchAndLoadModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEA2AAEA26BFA5BC0037BACD /* SearchAndLoadModel.swift */; };
@@ -44,6 +45,7 @@
 		CE1AE88926B6DF1B009C1EFA /* SendDB.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SendDB.swift; sourceTree = "<group>"; };
 		CE1AE88B26B6EF1F009C1EFA /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
 		CE38878526BE9E0500424DCD /* DataSets.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataSets.swift; sourceTree = "<group>"; };
+		CE45479626C16B96005B9CA9 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		CEA2AAE626BF98360037BACD /* VideoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoCell.swift; sourceTree = "<group>"; };
 		CEA2AAE726BF98360037BACD /* VideoCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = VideoCell.xib; sourceTree = "<group>"; };
 		CEA2AAEA26BFA5BC0037BACD /* SearchAndLoadModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchAndLoadModel.swift; sourceTree = "<group>"; };
@@ -84,6 +86,7 @@
 		CE0A9B4426B57E10006FDB3C /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				CE45479626C16B96005B9CA9 /* DetailViewController.swift */,
 				CE0ED6ED26AA80F800EA1080 /* ViewController.swift */,
 				CE0A9B4526B57E4E006FDB3C /* ProfileViewController.swift */,
 				CE1AE88B26B6EF1F009C1EFA /* SearchViewController.swift */,
@@ -265,6 +268,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CE45479726C16B96005B9CA9 /* DetailViewController.swift in Sources */,
 				CE38878626BE9E0500424DCD /* DataSets.swift in Sources */,
 				CEA2AAE826BF98360037BACD /* VideoCell.swift in Sources */,
 				CE1AE88C26B6EF1F009C1EFA /* SearchViewController.swift in Sources */,

@@ -95,10 +95,28 @@ class DetailViewController: UIViewController, UITableViewDelegate, UITableViewDa
     func doneLoadProfileProtocol(check: Int, userName: String, profileTextView: String, imageURLString: String) {
         if check == 1 {
             // アラートを出す
+            showAlert(userName: userName, profileTextView: profileTextView, imageURLString: imageURLString)
         }
     }
-    func showAlert() {
-        
+
+    func showAlert(userName: String, profileTextView:String,imageURLString:String) {
+        let alert = EMAlertController(title: userName, message: profileTextView)
+        let close = EMAlertAction(title: "閉じる", style: .cancel)
+        alert.cornerRadius = 10.0
+        alert.iconImage = getImageURL(url:imageURLString)
+        alert.addAction(close)
+        present(alert, animated: true, completion: nil)
+    }
+    
+    func getImageURL(url:String) -> UIImage {
+        let url = URL(string: url)
+        do{
+            let data = try Data(contentsOf: url!)
+            return UIImage (data: data)!
+        }catch {
+            print("画像取得エラー")
+        }
+        return UIImage()
     }
     /*
     // MARK: - Navigation

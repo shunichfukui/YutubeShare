@@ -11,7 +11,8 @@ import FirebaseAuth
 import FirebaseFirestore
 import EMAlertController
 
-class DetailViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, DoneLoadDataProtocol, YTPlayerViewDelegate {
+class DetailViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, DoneLoadDataProtocol, YTPlayerViewDelegate, DoneLoadProfileProtocol {
+    
 
 
     var userName = String()
@@ -32,6 +33,7 @@ class DetailViewController: UIViewController, UITableViewDelegate, UITableViewDa
         
         tableView.register(UINib(nibName:  "VideoCell", bundle: nil),forCellReuseIdentifier: "VideoCell")
         searchAndLoad.doneLoadDataProtocol = self
+        searchAndLoad.doneLoadProfileProtocol = self
         searchAndLoad.loadMyListData(userName: userName)
         // Do any additional setup after loading the view.
     }
@@ -87,9 +89,17 @@ class DetailViewController: UIViewController, UITableViewDelegate, UITableViewDa
     }
     
     @IBAction func showProfile(_ sender: Any) {
-        
+        searchAndLoad.loadProfile(userName: userName)
     }
 
+    func doneLoadProfileProtocol(check: Int, userName: String, profileTextView: String, imageURLString: String) {
+        if check == 1 {
+            // アラートを出す
+        }
+    }
+    func showAlert() {
+        
+    }
     /*
     // MARK: - Navigation
 

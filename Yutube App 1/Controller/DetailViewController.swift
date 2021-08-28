@@ -44,7 +44,7 @@ class DetailViewController: UIViewController, UITableViewDelegate, UITableViewDa
     }
     func tableView(_ tableView: UITableView,
                    numberOfRowsInSection section: Int) -> Int {
-        return 1
+        return dataSetsArray.count
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {

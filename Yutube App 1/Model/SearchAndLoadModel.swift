@@ -30,15 +30,23 @@ protocol DoneLoadProfileProtocol {
     // 規則
     func doneLoadProfileProtocol(check:Int, userName:String, profileTextView: String, imageURLString:String)
 }
+
+protocol DoneLoadTrendProtocol {
+    // 規則
+    func doneLoadTrendProtocol(check:Int, array:[TrendModel])
+}
+
 class SearchAndLoadModel {
 
     var urlString = String()
     var resultPerPage = Int()
     var dataSetsArray:[DataSets] = []
+    var trendModelArray:[TrendModel] = []
     var doneCatchDataProtocol: DoneCatchDataProtocol?
     var doneLoadDataProtocol: DoneLoadDataProtocol?
     var doneLoadUserNameProtocol: DoneLoadUserNameProtocol?
     var doneLoadProfileProtocol: DoneLoadProfileProtocol?
+    var doneLoadTrendProtocol:DoneLoadTrendProtocol?
 
     var db = Firestore.firestore()
     var userNameArray = [String]()
@@ -168,5 +176,37 @@ class SearchAndLoadModel {
         }
     }
     
-    
+    // 急上昇
+    func getTrend(urlString:String) {
+        let encordeUrlString = self.urlString.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)
+        AF.request(encordeUrlString as! URLConvertible, method: .get, parameters: nil, encoding: JSONEncoding.default).responseJSON {(response) in
+            print(response)
+            switch response.result {
+            case .success:
+                do {
+                    let json:JSON = try JSON(data:response.data!)
+                    for i in 0...50 - 1 {
+                        if let id = json["items"][i]["id"].string,
+                           let title = json["items"][i]["snippet"]["title"].string,
+                           let description = json["items"][i]["snippet"]["description"].string,
+                           let url = json["items"][i]["snippet"]["thumbnails"]["height"]["url"].string,
+                           let channelTitle = json["items"][i]["snippet"]["channelTitle"].string,
+                           let viewCount = json["items"][i]["statistics"]["viewCount"].string,
+                           let likeCount = json["items"][i]["statistics"]["likeCount"].string,
+                           let disLikeCount = json["items"][i]["statistics"]["disLikeCount"].string,
+                           let tags = json["items"][i]["snippet"]["tags"].array {
+                            
+                            let trendModel = TrendModel(videoId: id, title: title, url:url, channelTitle: channelTitle, viewCount: viewCount, likeCount:likeCount, disLikeCount: disLikeCount, description: description, tags:tags)
+                            self.trendModelArray.append(trendModel)
+                            self.doneLoadTrendProtocol?.doneLoadTrendProtocol(check: 1, array: self.trendModelArray)
+                           }
+                    }
+                }catch{
+                    print("エラー")
+                }
+            case .failure(_): break
+                print("エラー break")
+            }
+        }
+    }
 }

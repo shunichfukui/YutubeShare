@@ -6,6 +6,7 @@
 //
 
 import Foundation
+
 struct TrendModel {
     let videoId:String?
     let title:String?

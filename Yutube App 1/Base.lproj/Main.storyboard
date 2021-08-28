@@ -356,7 +356,7 @@
                                     <rect key="frame" x="0.0" y="0.0" width="414" height="900"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <subviews>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumFontSize="4" translatesAutoresizingMaskIntoConstraints="NO" id="4Sh-WC-Boy">
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="トレンド" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumFontSize="4" translatesAutoresizingMaskIntoConstraints="NO" id="4Sh-WC-Boy">
                                             <rect key="frame" x="21" y="338" width="334" height="416"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
@@ -367,11 +367,17 @@
                                             <rect key="frame" x="57" y="785" width="50" height="50"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <state key="normal" image="close"/>
+                                            <connections>
+                                                <action selector="close:" destination="4T2-qw-HCB" eventType="touchUpInside" id="X6A-mJ-6P6"/>
+                                            </connections>
                                         </button>
                                         <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="r7h-oo-1V3">
                                             <rect key="frame" x="316" y="785" width="50" height="50"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <state key="normal" image="tag"/>
+                                            <connections>
+                                                <action selector="showTagAlert:" destination="4T2-qw-HCB" eventType="touchUpInside" id="uP2-Rt-A1U"/>
+                                            </connections>
                                         </button>
                                     </subviews>
                                 </view>
@@ -384,7 +390,11 @@
                     </view>
                     <navigationItem key="navigationItem" id="IcL-we-14a"/>
                     <connections>
+                        <outlet property="blurView" destination="VSi-Gz-RJs" id="XuK-g9-buz"/>
+                        <outlet property="closeButton" destination="zhT-dX-9h3" id="vYW-uh-PML"/>
+                        <outlet property="descLabel" destination="4Sh-WC-Boy" id="uYU-5t-Hds"/>
                         <outlet property="tableView" destination="jX8-d6-fRc" id="nF2-q8-t6K"/>
+                        <outlet property="tagButton" destination="r7h-oo-1V3" id="IaM-G6-Pxx"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="tqM-af-SGz" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

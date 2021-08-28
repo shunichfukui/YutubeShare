@@ -12,12 +12,19 @@ import SDWebImage
 import youtube_ios_player_helper
 import EMAlertController
 
-class TrendViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, DoneLoadTrendProtocol {
+class TrendViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, DoneLoadTrendProtocol, YTPlayerViewDelegate {
 
     @IBOutlet weak var tableView: UITableView!
-    
+    @IBOutlet weak var closeButton: UIButton!
+    @IBOutlet weak var tagButton: UIButton!
+    @IBOutlet weak var blurView: UIVisualEffectView!
+    @IBOutlet weak var descLabel: UILabel!
+
     var searchAndLoad = SearchAndLoadModel()
     var trendModelArray = [TrendModel]()
+    var youtubeView = YTPlayerView()
+    var urlString = String()
+    var tagContents = String()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -25,6 +32,11 @@ class TrendViewController: UIViewController, UITableViewDelegate, UITableViewDat
         tableView.delegate = self
         tableView.dataSource = self
         searchAndLoad.doneLoadTrendProtocol = self
+
+        tagButton.isHidden = true
+        closeButton.isHidden = true
+        descLabel.isHidden = true
+        blurView.isHidden = true
         // Do any additional setup after loading the view.
     }
 
@@ -74,7 +86,73 @@ class TrendViewController: UIViewController, UITableViewDelegate, UITableViewDat
         }
     }
     
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        // 自分のリスト((YouTubeを再生)
+        youtubeView.removeFromSuperview()
+        // ステータスバーの高さを取得
+        let statusBarHeight = UIApplication.shared.statusBarFrame.height
+        // ナビゲーションバーの高さを取得
+        let navBarHeight = self.navigationController?.navigationBar.frame.size.height
+        youtubeView = YTPlayerView(frame: CGRect(x: 0, y: statusBarHeight + navBarHeight!, width: view.frame.size.width, height: 240))
+        youtubeView.delegate = self
+        youtubeView.load(widthVideoId: String(trendModelArray[indexPath.row].videoId!), playerVars: ["playersinline":1])
+        view.addSubview(youtubeView)
+        
+        descLabel.text = trendModelArray[indexPath.row].description
+        urlString = trendModelArray[indexPath.row].url!
+        print(trendModelArray[indexPath.row].tags!)
+        print(trendModelArray[indexPath.row].tags!.description)
+        tagContents = trendModelArray[indexPath.row].tags!.description
+    }
+    
+    func playerViewDidBecomeReady(_ playerView: YTPlayerView) {
+        descLabel.alpha = 0.0
+        descLabel.isHidden = false
+        UIView.animate(withDuration: 3.0, delay: 0.0, options: .curveLinear) {
+            self.descLabel.alpha = 1.0
+            self.navigationController?.navigationBar.alpha = 0.0
+        } completion: { (result) in
+            self.blurView.isHidden = false
+            self.closeButton.isHidden = false
+            self.tagButton.isHidden = false
+            playerView.playVideo()
+        }
+    }
+    
+    
+    @IBAction func close(_ sender: Any) {
+        self.descLabel.isHidden = true
+        self.closeButton.isHidden = true
+        self.blurView.isHidden = true
+        self.tagButton.isHidden = true
+        self.navigationController?.navigationBar.alpha = 1.0
+        youtubeView.removeFromSuperview()
+    }
+    
+    @IBAction func showTagAlert(_ sender: Any) {
+        showProfile()
+    }
+    
+    func showProfile() {
+        let alert = EMAlertController(title: "この動画に設定されてるタグ", message: tagContents)
+        let close = EMAlertAction(title: "閉じる", style: .cancel)
+        alert.cornerRadius = 10.0
+        alert.iconImage = getImageURL(url:urlString)
+        alert.addAction(close)
+        present(alert, animated: true, completion: nil)
+    }
 
+    func getImageURL(url:String) -> UIImage {
+        let url = URL(string: url)
+        do{
+            let data = try Data(contentsOf: url!)
+            return UIImage (data: data)!
+        }catch {
+            print("画像取得エラー")
+        }
+        return UIImage()
+    }
     /*
     // MARK: - Navigation
 

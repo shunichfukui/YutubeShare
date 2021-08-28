@@ -25,6 +25,7 @@ class TrendViewController: UIViewController, UITableViewDelegate, UITableViewDat
     var youtubeView = YTPlayerView()
     var urlString = String()
     var tagContents = String()
+    var loading = Loading()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -43,6 +44,7 @@ class TrendViewController: UIViewController, UITableViewDelegate, UITableViewDat
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         self.navigationController?.isNavigationBarHidden = false
+        loading.startAnimation(view: self.view)
         searchAndLoad.getTrend(urlString: "https://www.googleapis.com/youtube/v3/videos?part=snippet,statistics&regionCode=JP&chart=mostPopular&key=AIzaSyBtXzgTmEzb2BTkgx01vNUeW9L4Co4vynU&maxResults=50")
     }
 
@@ -83,6 +85,9 @@ class TrendViewController: UIViewController, UITableViewDelegate, UITableViewDat
         if check == 1 {
             trendModelArray = array
             tableView.reloadData()
+            DispatchQueue.main.async {
+                self.loading.stopAnimation()
+            }
         }
     }
     

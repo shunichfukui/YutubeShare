@@ -26,25 +26,25 @@ class SendDB {
     var videoID = String()
     var title = String()
     var publishTime = String()
-    var desctiption = String()
+    var description = String()
     var channelTitle = String()
 
     init() {
     }
 
-    init(userID:String, userName: String,urlString: String,videoID: String,title: String,publishTime: String,desctiption: String,channelTitle: String) {
+    init(userID:String, userName: String,urlString: String,videoID: String,title: String,publishTime: String,description: String,channelTitle: String) {
         self.userID = userID
         self.userName = userName
         self.urlString = urlString
         self.videoID = videoID
         self.title = userID
         self.publishTime = publishTime
-        self.desctiption = desctiption
+        self.description = description
         self.channelTitle = channelTitle
     }
     
     func sendData(userName:String) {
-        self.db.collection("contents").document(userName).collection("collection").document().setData(["userID":self.userID as Any, "userName":self.userName as Any,"publishTime":self.publishTime as Any,"urlString":self.urlString as Any,"videoID":self.videoID as Any,"desctiption":self.desctiption as Any,"title":self.title as Any, "channelTitle":self.channelTitle as Any, "postDate":Date().timeIntervalSince1970])
+        self.db.collection("contents").document(userName).collection("collection").document().setData(["userID":self.userID as Any, "userName":self.userName as Any,"publishTime":self.publishTime as Any,"urlString":self.urlString as Any,"videoID":self.videoID as Any,"description":self.description as Any,"title":self.title as Any, "channelTitle":self.channelTitle as Any, "postDate":Date().timeIntervalSince1970])
         self.db.collection("Users").addDocument(data: ["userName":self.userName])
     }
     // プロフィールを送信する処理

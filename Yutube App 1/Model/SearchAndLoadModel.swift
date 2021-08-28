@@ -178,7 +178,7 @@ class SearchAndLoadModel {
     
     // 急上昇
     func getTrend(urlString:String) {
-        let encordeUrlString = self.urlString.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)
+        let encordeUrlString = urlString.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)
         AF.request(encordeUrlString as! URLConvertible, method: .get, parameters: nil, encoding: JSONEncoding.default).responseJSON {(response) in
             print(response)
             switch response.result {
@@ -198,8 +198,8 @@ class SearchAndLoadModel {
                             
                             let trendModel = TrendModel(videoId: id, title: title, url:url, channelTitle: channelTitle, viewCount: viewCount, likeCount:likeCount, disLikeCount: disLikeCount, description: description, tags:tags)
                             self.trendModelArray.append(trendModel)
-                            self.doneLoadTrendProtocol?.doneLoadTrendProtocol(check: 1, array: self.trendModelArray)
                            }
+                        self.doneLoadTrendProtocol?.doneLoadTrendProtocol(check: 1, array: self.trendModelArray)
                     }
                 }catch{
                     print("エラー")
